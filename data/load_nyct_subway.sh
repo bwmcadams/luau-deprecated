@@ -1,7 +1,16 @@
 #!/bin/sh
 #
-# Quick & dirty script to load the MTA Subway Data to mongo
-# Assumes mongo is running and such.
+# Quick & dirty script to load the New York City Transit 
+# Subway Data to mongo. Assumes mongo is running and such.
+# 
+# Data file is from: http://mta.info/developers/ 
+# and freely available/redistributable.
+# 
+# Spec on the data format is available at: 
+# http://code.google.com/transit/spec/transit_feed_specification.html
+# 
+# Not all optional (but all required) specification files are provided by 
+# the MTA in the Subway files.
 #
 
 MONGO_IMPORT=/usr/bin/mongoimport
