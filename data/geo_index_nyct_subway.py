@@ -23,7 +23,7 @@ for row in db.stops.find():
     row['stop_geo'] = {'lat': row['stop_lat'], 'lon': row['stop_lon']}
     db.stops.save(row)
 
-db.stops.create_index('stop_geo', direction=pymongo.GEO2D)
+db.stops.ensure_index([('stop_geo', pymongo.GEO2D)])
 print "Reindexed stops with Geospatial data."
 
 print "Indexing the Shapes data"
@@ -31,7 +31,7 @@ for row in db.shapes.find():
     row['shape_pt_geo'] = {'lat': row['shape_pt_lat'], 'lon': row['shape_pt_lon']}
     db.shapes.save(row)
 
-db.shapes.create_index('shape_pt_geo', direction=pymongo.GEO2D)
+db.shapes.ensure_index([('shape_pt_geo', pymongo.GEO2D)])
 print "Reindexed shapes with Geospatial data."
 
 print "Done."
